@@ -2,13 +2,24 @@
 
 Mobile FlashCards is React Native app for iOS and Android that allows users to create decks, add cards and quiz themselves. This is the third project in the Udacity React Nanodegree .This project was developed using Expo.
 
-### `npm start` OR `expo start`
 
-> You can use your device to test the app
+### Installation
 
-> Scan the QR code using the Expo Client app (You'll need to download this first)
+> To install the application, first you need to have Expo installed in your mobile device. Follow instruction at: (https://expo.io/).
 
-> Use Android Emulator Or IOS simulator
+> Clone the repository with $ git clone https://github.com/Hanane-Benidder/Flashcard.git
+
+> Open a terminal and cd into the Flashcard folder
+
+> Run npm install or yarn install to install the project dependencies
+
+> Run npm start or yarn start or expo start to start the project
+
+> You can test the app by scanning the QR code from a mobile device or using a emulator in your machine
+
+
+
+
 
 ### Core:
 
