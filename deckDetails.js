@@ -10,6 +10,7 @@ class deckDetails extends Component {
   };
   render() {
     const { title, cards } = this.props;
+
     return (
       <View style={styles.deckItem}>
         <TouchableOpacity onPress={this.handlePress}>
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderStyle: "dashed",
     borderRadius: 10,
-    backgroundColor: "pink",
+    backgroundColor: "#ffbb99",
   },
 });
 const mapStateToProps = (decks, { title, navigation }) => {
@@ -41,4 +42,3 @@ const mapStateToProps = (decks, { title, navigation }) => {
   };
 };
 export default connect(mapStateToProps)(deckDetails);
-// export default deckDetails;

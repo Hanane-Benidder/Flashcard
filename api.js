@@ -1,6 +1,6 @@
 import { AsyncStorage } from "react-native";
 
-export const DECKS_STORAGE_KEY = "udacityFlashcards:decks";
+export const DECKS_STORAGE_KEY = "udacityFlashcardsKey";
 
 export function handleInitialData() {
   const initialData = {
@@ -17,13 +17,12 @@ export function handleInitialData() {
         },
       ],
     },
-    JavaScript: {
-      title: "JavaScript",
+    CSS: {
+      title: "CSS",
       questions: [
         {
-          question: "What is a closure?",
-          answer:
-            "The combination of a function and the lexical environment within which that function was declared.",
+          question: "What is CSS?",
+          answer: "It describes how the HTML content will be shown on screen.",
         },
       ],
     },

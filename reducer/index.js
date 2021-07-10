@@ -13,7 +13,7 @@ function decks(state = {}, action) {
         ...action.deck,
       };
     case ADD_CARD:
-      const [title, card] = action;
+      const { title, card } = action;
       return {
         ...state,
         [title]: {

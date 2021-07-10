@@ -1,42 +1,42 @@
-import React from "react";
+import React, { Component } from "react";
 import { View, Text, StyleSheet, Alert, Button } from "react-native";
 import { connect } from "react-redux";
-function deck() {
-  // const { navigation, text, cards, route } = this.props;
+import { clearLocalNotification, setLocalNotification } from "./notification";
 
-  // const handleQuis = () => {
-  //   if (cards === 0) {
-  //     Alert.alert(
-  //       "Empty Deck",
+class deck extends Component {
+  handlePress = () => {
+    const { title, cards, navigation } = this.props;
+    navigation.navigate("AddCard", { title, cards });
+  };
 
-  //       [{ text: "OK" }]
-  //     );
-  //   } else {
-  //     navigation.navigate("quiz", { text });
-  //   }
-  // };
-
-  // const handlePress = () => {
-  //   const { navigation, text, cards } = this.props;
-
-  //   navigation.navigate("addCard", { text });
-  // };
-  return (
-    <View>
+  handleQuiz = () => {
+    const { title, cards, navigation } = this.props;
+    navigation.navigate("Quiz", { title, cards });
+    //  clearLocalNotification().then(setLocalNotification);
+  };
+  render() {
+    const { title, cards } = this.props;
+    return (
       <View>
-        {/* <Text>{route.params.text} </Text> */}
-        <View style={styles.btton}>
-          <Button title="Add Card" color="pink" />
-        </View>
-        <View style={styles.btton}>
-          <Button title="Start Quiz" color="#ffbb99" />
-        </View>
-        <View style={styles.btton}>
-          <Button title="Delete" color="#ffbb99" />
+        <View>
+          <View style={styles.title}>
+            <Text style={styles.text}>{title} </Text>
+            <Text style={styles.text}>{cards} </Text>
+          </View>
+          <View style={styles.btton}>
+            <Button title="Add Card" color="pink" onPress={this.handlePress} />
+          </View>
+          <View style={styles.btton}>
+            <Button
+              title="Start Quiz"
+              color="#ffbb99"
+              onPress={this.handleQuiz}
+            />
+          </View>
         </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -45,6 +45,16 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 40,
   },
+  title: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  text: {
+    padding: 10,
+    fontSize: 20,
+    color: "#ffaa80",
+  },
+
   item: {
     width: 280,
     height: 80,
@@ -57,13 +67,14 @@ const styles = StyleSheet.create({
   },
 });
 
-// const mapStateToProps = (decks, { route, navigation }) => {
-//   const title = route.params.text;
-//   const cards = decks[title].questions.length;
+const mapStateToProps = (decks, { route, navigation }) => {
+  const title = route.params.title;
+  const cards = decks[title].questions.length;
 
-//   return {
-//     cards,
-//   };
-// };
-// export default connect(mapStateToProps)(deck);
-export default deck;
+  return {
+    title,
+    cards,
+    navigation,
+  };
+};
+export default connect(mapStateToProps)(deck);

@@ -10,6 +10,7 @@ class deckHome extends Component {
   }
   render() {
     const { decks } = this.props;
+    console.log(decks);
     return (
       <View style={styles.container}>
         <ScrollView>
